@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('home');
@@ -48,3 +48,10 @@ Route::get('/banco/{n}', function ($n) {
 Route::fallback(function () {
     return response()->view('error.404', [], 404);
 });
+// Login
+Route::get('/login', [ProductController::class, 'login']);
+Route::post('/login', [ProductController::class, 'postLogin']);
+
+// Register
+Route::get('/register', [ProductController::class, 'register']);
+Route::post('/register', [ProductController::class, 'postRegister']);
