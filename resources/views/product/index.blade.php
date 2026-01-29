@@ -1,55 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>Product</title>
+    <meta charset="UTF-8">
+    <title>Danh sách sản phẩm</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: url("/images/tet.jpg") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        h1 {
+            margin: 40px 0 20px 80px;
+            font-size: 34px;
+            color: #7c2d12;
+            text-shadow: 0 2px 6px rgba(255,255,255,0.7);
         }
 
         table {
+            width: 65%;
+            margin-left: 80px;
             border-collapse: collapse;
-            width: 60%;
-            margin-top: 20px;
+            background: #fffaf0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         th {
-            background-color: #19c8e7;
-            color: rgb(16, 1, 1);
-            padding: 10px;
+            background: linear-gradient(135deg, #b91c1c, #ef4444);
+            color: #fff7ed;
+            padding: 14px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
         }
 
         td {
-            border: 1px solid #ccc;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            border-bottom: 1px solid #fde68a;
+            color: #3f3f46;
+            font-weight: 500;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #fff7ed;
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #fffbeb;
         }
 
         tr:hover {
-            background-color: #dff9fb;
+            background-color: #fde68a;
         }
 
-        button {
-            background-color: #c35fb4;
+        a {
+            color: #b91c1c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-add {
+            margin: 30px 0 0 80px;
+            background: linear-gradient(135deg, #ec4899, #db2777);
             color: white;
             border: none;
-            padding: 10px 16px;
+            padding: 12px 22px;
+            font-size: 15px;
+            border-radius: 10px;
             cursor: pointer;
-            border-radius: 4px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        button:hover {
-            background-color: #219150;
+        .btn-add:hover {
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
 
-<h1>Danh sách sản phẩm</h1>
+<h1>Product List</h1>
 
 <table>
     <tr>
@@ -57,38 +95,32 @@
         <th>Tên sản phẩm</th>
         <th>Giá (VNĐ)</th>
         <th>Chi tiết</th>
-
     </tr>
+
     <tr>
         <td>1</td>
         <td>iPhone 15 Pro Max</td>
         <td>34.990.000</td>
-        <td>
-        <a href="{{ route('product.detail', 1) }}">Xem</a>
-    </td>
+        <td><a href="{{ route('product.detail', 1) }}">Xem</a></td>
     </tr>
+
     <tr>
         <td>2</td>
         <td>Samsung Galaxy S24 Ultra</td>
         <td>32.990.000</td>
-        <td>
-        <a href="{{ route('product.detail', 2) }}">Xem</a>
-    </td>
+        <td><a href="{{ route('product.detail', 2) }}">Xem</a></td>
     </tr>
+
     <tr>
         <td>3</td>
         <td>Laptop Dell Inspiron 15</td>
         <td>18.500.000</td>
-        <td>
-        <a href="{{ route('product.detail', 3) }}">Xem</a>
-    </td>
+        <td><a href="{{ route('product.detail', 3) }}">Xem</a></td>
     </tr>
 </table>
 
-<br>
-
 <a href="{{ route('product.add') }}">
-    <button> Thêm sản phẩm</button>
+    <button class="btn-add">Thêm sản phẩm</button>
 </a>
 
 </body>
