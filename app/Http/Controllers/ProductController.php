@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -53,6 +55,12 @@ class ProductController extends Controller
     {
         $ages = session('ages', []);
         return view('age.list', compact('ages'));
+    }
+    // DANH SÁCH PRODUCT
+public function index()
+    {
+        $products = Product::all(); // lấy tất cả sản phẩm
+        return view('products.index', compact('products'));
     }
  
 

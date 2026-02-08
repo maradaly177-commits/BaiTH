@@ -78,3 +78,15 @@ Route::get('/', function () {
 Route::fallback(function () {
     return response()->view('error.404', [], 404);
 });
+
+
+Route::get('/products', [ProductController::class, 'index']);
+
+Route::get('/product/list', [ProductController::class, 'index'])
+    ->name('product.list');
+
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+
+
