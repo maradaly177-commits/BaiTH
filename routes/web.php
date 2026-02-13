@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AgeController;
-
+use App\Http\Controllers\CategoryController;
 
 Route::prefix('product')->group(function () {
 
@@ -89,4 +89,5 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
+Route::resource('categories', CategoryController::class);
 
