@@ -1,5 +1,61 @@
 @import 'tailwindcss';
 
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    background: url('/images/banner.jpg') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 120px;
+    position: relative;
+}
+
+/* Overlay làm tối ảnh cho chữ nổi bật */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Nội dung */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 72px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* Button sang hơn */
+.btn-shop {
+    display: inline-block;
+    padding: 12px 32px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-shop:hover {
+    background: #fff;
+    color: #111;
+}
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';

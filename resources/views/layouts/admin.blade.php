@@ -32,8 +32,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@yield('title', 'AdminLTE')</title>
-
+   <title>@yield('title', 'AdminLTE')</title>
+   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
@@ -46,7 +47,7 @@
   <!-- AdminLTE -->
   <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini sidebar-collapse layout-fixed"></body>
 
 <div class="wrapper">
 
@@ -58,9 +59,26 @@
 
   {{-- Content --}}
   <div class="content-wrapper">
-    
-    @yield('content')
-  </div>
+
+    <!-- Content Header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">@yield('title')</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            @yield('content')
+        </div>
+    </section>
+
+</div>
 
   {{-- Footer --}}
   @include('layouts.partials.footer')

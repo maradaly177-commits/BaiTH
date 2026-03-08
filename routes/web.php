@@ -91,3 +91,10 @@ Route::get('/admin', function () {
 
 Route::resource('categories', CategoryController::class);
 
+
+Route::get('/', [ProductController::class, 'home'])->name('home');
+
+
+Route::post('/products', [ProductController::class, 'store']);
+
+Route::resource('products', ProductController::class);

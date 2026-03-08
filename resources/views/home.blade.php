@@ -1,3 +1,5 @@
+{{--  
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -59,3 +61,44 @@
 
 </body>
 </html>
+
+--}}
+
+@extends('layouts.admin')
+
+@section('content')
+
+<!-- HERO BANNER -->
+<!-- HERO BANNER -->
+<section class="hero"
+    style="background: url('{{ asset('images/banner.jpg') }}') center/cover no-repeat; height: 400px; display: flex; align-items: center;">
+
+    <div class="hero-content text-white ms-5">
+        <h1 class="display-3 fw-bold">MEN STYLE</h1>
+        <p class="lead">The First Step of Victory Mastery</p>
+        <a href="#" class="btn btn-dark mt-3">SHOP NOW</a>
+    </div>
+
+</section>
+
+<!-- PRODUCT SECTION -->
+<section class="container mt-5">
+    <h2 class="text-center mb-4">SẢN PHẨM MỚI</h2>
+
+    <div class="row">
+        @foreach($products as $product)
+            <div class="col-md-3 mb-4">
+                <div class="card product-card">
+                    <img src="{{ asset('images/' . $product->image) }}" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5>{{ $product->name }}</h5>
+                        <p class="text-danger">{{ number_format($product->price) }} đ</p>
+                        <a href="#" class="btn btn-dark btn-sm">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</section>
+
+@endsection

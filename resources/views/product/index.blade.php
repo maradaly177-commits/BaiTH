@@ -137,7 +137,9 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Product List</h3>
-            <a href="#" class="btn btn-primary float-right">+ Add Product</a>
+            <a href="{{ route('products.create') }}" class="btn btn-primary float-right">
++ Add Product
+</a>
         </div>
 
         <div class="card-body">
@@ -148,19 +150,41 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Stock</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
-                <tbody>
-                    @foreach($products as $product)
-                        <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->name }}</td>
-                            <td>{{ number_format($product->price, 0, ',', '.') }}</td>
-                            <td>{{ $product->stock }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
+               <tbody>
+@foreach($products as $product)
+
+<tr>
+<td>{{ $product->id }}</td>
+<td>{{ $product->name }}</td>
+<td>{{ number_format($product->price, 0, ',', '.') }}</td>
+<td>{{ $product->stock }}</td>
+
+<td>
+
+<a href="{{ route('products.edit',$product->id) }}" class="btn btn-warning btn-sm">
+Edit
+</a>
+
+<form action="{{ route('products.destroy',$product->id) }}" method="POST" style="display:inline;">
+@csrf
+@method('DELETE')
+
+<button class="btn btn-danger btn-sm">
+Delete
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+@endforeach
+</tbody>
             </table>
         </div>
     </div>

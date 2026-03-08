@@ -29,26 +29,35 @@
 
 --}}
 
-<li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-        <i class="nav-icon fas fa-list"></i>
+<li class="nav-item {{ request()->routeIs('categories.*') ? 'menu-open' : '' }}">
+
+    <a href="#" 
+       class="nav-link {{ request()->routeIs('categories.*') ? 'active bg-primary' : '' }}">
+
+        <i class="nav-icon fas fa-layer-group"></i>
         <p>
             Quản lý Danh mục
-            <i class="right fas fa-angle-left"></i>
+            <i class="right fas fa-chevron-down"></i>
         </p>
     </a>
 
-    <ul class="nav nav-treeview">
+    <ul class="nav nav-treeview pl-3">
+
         <li class="nav-item">
-            <a href="{{ route('categories.index') }}" class="nav-link">
+            <a href="{{ route('categories.index') }}"
+               class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-list-ul text-info"></i>
                 <p>Xem danh sách</p>
             </a>
         </li>
 
         <li class="nav-item">
-            <a href="{{ route('categories.create') }}" class="nav-link">
+            <a href="{{ route('categories.create') }}"
+               class="nav-link {{ request()->routeIs('categories.create') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-plus-circle text-success"></i>
                 <p>Thêm mới</p>
             </a>
         </li>
+
     </ul>
 </li>
